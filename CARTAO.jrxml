@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="CARTAO" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3f38915-aecf-42ad-8474-3d58240729be">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM CARTAO]]>
+	</queryString>
+	<field name="numero_cartao" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data_emissao" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prazo_validade" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="limite" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="condicoes_pagamento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="saldo_cartao" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="despesa_cartao" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="taxa_anuidade" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nome_titular" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numero_banco" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="numero_cartao">
+		<groupExpression><![CDATA[$F{numero_cartao}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="217" y="25" width="137" height="30" uuid="72efd78b-6b82-40a2-897a-2baff36db712"/>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório Cartão]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="b7c43757-1d1b-4f9f-b727-220004281a66"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="73026bcb-87c1-4d57-acec-4d00bac4e002"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="e50e0e69-1dee-4658-b4b7-edb1d40b4a34"/>
+				<text><![CDATA[Número do Cartão]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20" uuid="c6d2d995-6851-4da3-9681-d2bc2b6e1346"/>
+				<text><![CDATA[Data de emissão]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="20" uuid="510be370-e9e6-4684-a647-6670029a2201"/>
+				<text><![CDATA[Nome do Titular]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="0" width="82" height="20" uuid="055deab9-e907-499c-8733-a7901c496a58"/>
+				<text><![CDATA[Limite]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="0" width="100" height="20" uuid="a1aa2e5d-5eb9-4cf1-b0f8-2b9a2a847dc0"/>
+				<text><![CDATA[Número do Banco]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="c8bf53a3-ce1e-40ff-8c65-f78a87182097"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="12" width="100" height="20" uuid="7d366e40-72f8-4be4-9965-ba756431f0a1"/>
+				<textFieldExpression><![CDATA[$F{numero_cartao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="12" width="100" height="20" uuid="b7406d57-d538-4ad1-a6c6-5cdd96cb48d9"/>
+				<textFieldExpression><![CDATA[$F{data_emissao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="12" width="173" height="20" uuid="9922bb76-876d-42e5-b708-6573a86e4e2a"/>
+				<textFieldExpression><![CDATA[$F{nome_titular}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="12" width="100" height="20" uuid="b4529f5f-f43e-4e80-8e11-74a2b6d3c1c7"/>
+				<textFieldExpression><![CDATA[$F{numero_banco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="373" y="12" width="82" height="20" uuid="ad1f0f8e-e997-4882-9eb7-e778d852ed47"/>
+				<textFieldExpression><![CDATA[$F{limite}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
